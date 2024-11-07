@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aeroscape</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link href="css/cover.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Jersey+25+Charted&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    </style>
+</head>
+
+<body class="text-center text-white bg-dark">
+
+    <div id="mainCarousel" class="carousel slide bg-holder" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner align-content-center align-middle">
+          <div class="row carousel-item active" style="background-image: url('src/cover2.gif'); background-size: cover; min-height: 95vh;">
+            <main class="row px-3 align-middle" style="margin-top: 25vh;">
+                <h1 style="font-family: Courgette; font-size: 4rem;" class="align-middle">Aeroscape</h1>
+                <p class="lead">The world of Aerospace Engineering</p>
+                <p class="lead">
+                    <a href="#article" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Saiba mais</a>
+                </p>
+            </main>
+            <footer class="mt-auto text-white-50">
+                <p>By Iruam Parreira <sub><br>com snippets de <a href="https://getbootstrap.com/docs/5.0/examples/">getbootstrap.com</a></sub></p>
+            </footer>
+          </div>
+          <div class="carousel-item align-content-center" style="background-image: url('src/cover.webp'); background-size: cover; min-height: 95vh;">
+            <main class="px-3 my-auto" style="margin-top: 15vh;">
+                <h1 style="font-family: 'Jersey 25 Charted'; font-size: 4rem;">A small step for a man</h1>
+            </main>
+          </div>
+          <div class="carousel-item align-content-center" style="background-image: url('src/cover3.webp'); background-size: cover; min-height: 95vh;">
+            <main class="px-3 my-auto" style="margin-top: 35vh;">
+                <h1 style="font-family: 'Jersey 25 Charted'; font-size: 4rem;">Dare Mighty Things</h1>
+            </main>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+    <!-- <div id="header" class="bg-holder d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <main class="px-3 my-auto">
+            <h1 style="font-family: Courgette; font-size: 4rem;">Aeroscape</h1>
+            <p class="lead">The world of Aerospace Engineering</p>
+            <p class="lead">
+                <a href="#article" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Saiba mais</a>
+            </p>
+        </main>
+        <footer class="mt-auto text-white-50">
+            <p>By Iruam Parreira <sub><br>com snippets de <a href="https://getbootstrap.com/docs/5.0/examples/">getbootstrap.com</a></sub></p>
+        </footer>
+    </div> -->
+    
+    <header class="d-flex mx-auto py-2 justify-content-center sticky-top" style="background: linear-gradient(15deg, rgba(0,0,0,1) 0%, rgba(104,129,149,1) 100%); ">
+        <div>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav nav-link" href="#header">Início</a>
+                <a class="nav-link" href="#article">O que é</a>
+                <a class="nav-link" href="#institutions">Os Feitos</a>
+            </nav>
+        </div>
+    </header>
+
+    <article id="article" class="container py-4">
+        <div class="p-5 mb-4 bg-secondary rounded-3">
+            <div class="container-fluid py-5">
+              <h1 class="display-5 fw-bold">O panorama da Aeroespacial</h1>
+              <p class="fs-4">A Engenharia aeroespacial é o ramo da engenharia que, com base em diversas áreas da física, como a termodinâmica, a mecânica dos fluidos, a eletrônica, a mecânica clássica e outras, lida com o projeto, construção e aplicação de aeronaves, espaçonaves e satélites. Nesse contexto, são os lideres da industria agências como a NASA, ESA e SpaceX</p>
+              <img src="src/nasa.jpg" style="width: 10%;" class="col-md-8">
+              <img src="src/esa.png" style="width: 10%;" class="col-md-5">
+              <img src="src/spacex.png" style="width: 10%;" class="col-md-5">
+            </div>
+        </div>
+        <div class="row align-items-md-stretch">
+            <div class="col-md-6">
+              <div class="h-100 p-5 text-white rounded-3" style="background-color: chocolate;">
+                <h2>O desenvolvimento:</h2>
+                <p>Dentre os principais desenvolvimentos nos ultimos tempos, tanto por iniciativas governamentais, quanto publicas, podemos citar: <ul>
+                    <li>A missão <b>Artemis</b> da <b>NASA</b>;</li>
+                    <li>O desenvolvimento do <b>Starship</b> da <b>SpaceX</b>;</li>
+                    <li>O veiculo de lançamento <b>Ariane 6</b> da <b>ArianeGroup</b>;</li>
+                    <li>Tecnologia de <b>reutilizamento</b> de foguetes da <b>SpaceX</b>;</li>
+                </ul></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="h-100 p-5 border rounded-3">
+                <h2>Principais Agencias</h2>
+                <p>Para todo progresso no ramo, é necessario um investimento financeiro consideravel. Estas são as agencias governamentais com o maior orçamento, em bilhões:<ul>
+                    <li><b>NASA (EUA)</b>: 22.6 USD</li>
+                    <li><b>CNSA (China)</b>: 11.9 USD</li>
+                    <li><b>ESA (UE)</b>: 7.5 Euros</li>
+                    <li><b>Roscosmos (Russia)</b>: 2.6 USD</li>
+                </ul></p>
+              </div>
+            </div>
+        </div>       
+    </article>
+
+    <div id="institutions" class="album py-5 bg-light">
+        <div class="container">
+            <section class="py-5 text-center container">
+                <div class="row py-lg-5">
+                  <div class="col-lg-6 col-md-8 mx-auto shadow rounded-3">
+                    <h1 class="fw-light text-dark">As Instituições</h1>
+                    <p class="lead text-muted">Tendo uma forte relação com o mundo academico, a engenharia aeroespacial é ensinada desde instituições novas até as mais tradicionais e renomadas. Algumas das instituições que mais contribuiram
+                        para o desenvolvimento e progresso desta área, alem de formar profissionais altamente capacitados estão listadas abaixo.
+                    </p>
+                  </div>
+                </div>
+            </section>            
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="card" style="width: 18rem; margin-right: 14rem;">
+                    <img class="card-img-top" src="src/mit.png">
+                    <div class="card-body">
+                      <h5 class="card-title">Massachussets Institute of Technology</h5>
+                      <p class="card-text"> Fundada em 1861, em resposta à crescente industrialização dos Estados Unidos, o MIT adotou um modelo europeu de universidade focado na instrução laboratorial em ciência aplicada e engenharia. Segundo o ranking de 2022 da QS, um dos mais conceituados do mundo, o MIT é a melhor universidade do mundo, posição que ocupa há dez anos consecutivos.</p>
+                      <a href="https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology" class="btn btn-primary">Saiba Mais</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem; margin-right: 14rem;">
+                    <img class="card-img-top" src="src/jpl.png">
+                    <div class="card-body">
+                      <h5 class="card-title">NASA Jet Propulsion Laboratory</h5>
+                      <p class="card-text">O JPL é um centro tecnológico da NASA gerenciado pelo governo e conduzido pelo Caltech. É responsável pela operação de inumeras missões e até o momento, enviou sondas para todos os planetas do Sistema Solar exceto Plutão.</p>
+                      <a href="https://pt.wikipedia.org/wiki/Laborat%C3%B3rio_de_Propuls%C3%A3o_a_Jato" class="btn btn-primary">Saiba Mais</a>
+                    </div>
+                  </div>
+                  <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="src/inpe.png">
+                    <div class="card-body">
+                      <h5 class="card-title">Instituto Nacional de Pesquisas Espaciais</h5>
+                      <p class="card-text">O Inpe é uma instituição federal com a missão de promover e executar estudos, pesquisas científicas, desenvolvimento tecnológico e capacitação de recursos humanos, nos campos da Ciência Espacial e da Atmosfera, das Aplicações Espaciais, da Meteorologia e da Engenharia e Tecnologia Espacial.</p>
+                      <a href="https://pt.wikipedia.org/wiki/Instituto_Nacional_de_Pesquisas_Espaciais" class="btn btn-primary">Saiba Mais</a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+              <img src="src/nasa.jpg" style="width: 15%; margin-right: 15px;">
+            <span class="text-light">© 2024 IruamFx, Inc</span>
+          </div>
+        </footer>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+#main-form {
+    background-image: url("src/batman.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-name: mainFormImgTrans;
+    animation-duration: 4s;
+}

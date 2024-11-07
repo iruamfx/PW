@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+* {
+    font-family: "Montserrat";
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.whitetext {
+    color: white
+}
+
+.holder {
+    position: relative;
+}
+
+#redr1 {
+    position: absolute;
+    margin-top: -10vw;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+nav {
+    position: fixed;
+    background-color: #fd8d1d;
+    background-size:contain;
+    width: 100vw;
+    height: 7.7vh;
+    z-index: 1;
+    box-shadow: #994500 0px 0px 10px 0px;
+}
+
+nav > #navbtn {
+    user-select: none;
+    float: right;
+    position: relative;
+    margin-right: 2vw;
+    margin-top: 2vh;
+    background-color: rgba(253,141,29,1);
+    text-decoration: none;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    padding: 0.5vh 1.4vw;
+    color: white;
+    transition: padding 0.25s, background-color 0.25s;
+}
+
+nav > img#flag {
+    user-select: none;
+    position: absolute;
+    margin-left: 0.5vw;
+    height: 8vh;
+}
+
+nav > #navbtn:hover {
+    padding: 0.9vh 1.8vw;
+    background-color: rgba(249,158,41,1);
+}
+
+nav > p {
+    user-select: none;
+    position: absolute;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 5vw;
+    margin-top: 2.3vh;
+}
+
+header {
+    position: relative;
+    background: rgb(180,80,58);
+    background: linear-gradient(0deg, rgba(180,80,58,1) 0%, rgba(253,141,29,1) 50%, rgba(252,192,69,1) 100%);
+    width: 101vw;
+    height: 110vh;
+    display: flex;
+    user-select: none;
+    justify-content: center; /* https://www.freecodecamp.org/news/how-to-center-a-div-with-css/ */
+}
+
+header > #silhouette
+{
+    margin-left: -1vw;
+    margin-top: 45vh;
+    width: 101vw;
+    height: 65vh;
+    filter: invert(89%) sepia(93%) saturate(0%) hue-rotate(61deg) brightness(110%) contrast(105%) /*https://codepen.io/sosuke/pen/Pjoqqp*/;
+}
+
+header > .introductory-text {
+    font-family: "Roboto";
+    position: absolute;
+    text-align: center;
+    color: white;
+}
+
+header > h1 
+{
+    
+    font-style: italic;
+    font-size: 100px;
+    user-select: none;
+    transition: font-size 50ms;
+    margin-top: 10vh;
+    text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+    /* Feito com isso aqui > https://html-css-js.com/css/generator/text-shadow/ */
+}
+
+header > p {
+    position: relative;
+    margin-top: 25vh;
+    font-size: 20px;
+    color: #e0dfdc;
+    text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);text-shadow: 0 1px 0 #CCCCCC, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+}
+
+section {
+    width: 100vw;
+    height: 75vh;
+    overflow-y: auto;
+}
+
+section > #effect-img {
+    float: left;
+    margin: 0vh -1vh 2vh 0vh;
+    width: 30vw;
+}
+
+section > h2 {
+    position: relative;
+    font-size: 50px;
+    font-family: "Bebas Neue";
+}
+
+section > p {
+    margin-top: -2vw;
+    font-size: 25px;
+}
+
+article { 
+    position: relative;
+    background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(255, 177, 98) 10% , rgba(253,141,29,1) 100%); 
+    width: 100vw;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+}
+
+article > h1 {
+    position: absolute;
+    margin-top: 15vh;
+    margin-right: 1vh;
+    margin-left: 1vh;
+}
+
+article > ul {
+    text-indent: 5%;
+    text-align: justify;
+    position:relative;
+    margin-right: 3vh;
+    margin-left: 3vh;
+    margin-top: 25vh;
+    overflow-y: scroll;
+}
+
+article > ul > li {
+    padding: 1vh 1vw;
+    border: 5px solid #ffffff;
+}
+
+.columnize {
+    column-count: 2;
+    column-rule-style: solid;
+    column-gap: 10vw;
+    column-width: 100px;
+}
+
+summary {
+    position: relative;
+    background: linear-gradient(180deg, rgb(230, 123, 16) 0%, rgb(255, 177, 98) 50% , rgb(230, 123, 16) 100%); 
+    width: 100vw;
+    height: 105vh;
+    display: flex;
+    justify-content: center;
+}
+
+summary > h1 {
+    margin-top: 5vw;
+    position: absolute;
+    text-align: center;
+}
+
+summary > .dropdowncard {
+    text-align: center;
+    align-items: center;
+    font-family: "Roboto";
+    margin-top: 40vh;
+    width: 10vw;
+    height: 15vh;
+    display: inline-block;
+    position: relative;
+}
+
+summary > .dropdowncard > p {
+    display: inline-block;
+    position: relative;
+}
+
+summary > .dropdowncard > .dropdowncard-content {
+    margin-top: 15vh;
+    display: inline-block;
+    width: 10vw;
+    height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: height 1s;
+    position: absolute;
+    top: 0%; /* Altere para 'bottom' se necessário */
+    left: 0;
+}
+
+summary > .dropdowncard:hover .dropdowncard-content {
+    height: 35vh;
+}
+
+summary > a {
+    position: absolute;
+    margin-top: 93vh;
+    font-size: 20px;
+    padding: 1vh 1vw;
+    border: 5px solid #ffffff;
+}
+
+footer {
+    position: absolute;
+    background: rgba(253,141,29,1);
+    width: 100vw;
+    height: 10vh;
+    box-shadow: #da6200 0px 0px 10px;
+}
+
+footer > p {
+    margin-top: 1.7vw;
+    margin-left: 5vh;
+    font-size: 20px;
+}
+
+footer > p#final {
+    user-select: none;
+    position: relative;
+    float: right;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 2vh;
+    margin-top: -3vw;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffd077;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffc760
+}
