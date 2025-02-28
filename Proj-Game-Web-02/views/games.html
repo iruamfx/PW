@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DODIRU Repacks</title>
+</head>
+<body>
+    <h1>Bem vindo a página de repacks</h1>
+    <hr>
+    <p>Confira a lista de jogos: </p>
+    <!-- Comentario html {# {Comentario Jinja 2} #} -->
+    <ol>
+        {% for key, value in game.items() %}
+        <details>
+            <summary>{{key}}</summary>
+            <p>{{value}}</p>
+        </details>
+        {% endfor %}
+    </ol>
+    <p>O jogo {{game["Title"]}} tem {{2025 - game["Year"]}} {{"ano" if 2025 - game["Year"] == 1 else "anos"}}</p>
+    <hr>
+    <p>Estão jogando no momento</p>
+    <ol>
+        {% for player in players: %}
+        <li>{{player}}</li>
+        {% endfor %}
+    </ol>
+    <hr>
+    <h4>Entrar no jogo:</h4>
+    <form action="{{url_for('games')}}", method="POST">
+        <label for="player">Jogador:</label>
+        <input type="text" name="jogador">
+        <input type="submit" value="Entrar">
+    </form>
+    <a href="/">Voltar para página inicial</a>
+</body>
+</html>
