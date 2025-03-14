@@ -13,9 +13,9 @@ def init_app(app):
                 "Year": 2020,
                 "Category": "Action RPG"}]
     
-    consolelist = [{"Name": "",
-                    "Price": "",
-                    "Country": ""}]
+    conslist = [{"Name": "Xbox Series S",
+                    "Price": "R$2600",
+                    "Country": "USA"}]
 
     @app.route("/games", methods=["GET", "POST"])
     def games():
@@ -35,3 +35,13 @@ def init_app(app):
                                  "Category": request.form.get("category")})
 
         return render_template("cadgames.html", gamelist=gamelist)
+    
+    @app.route("/cadconsoles", methods=["GET", "POST"])
+    def cadconsoles():
+        if request.method == "POST":
+            if request.form.get("name") and request.form.get("price") and request.form.get("country"):
+                conslist.append({"Name": request.form.get("name"), 
+                                 "Price": "R$" + request.form.get("price"),
+                                 "Country": request.form.get("country")})
+
+        return render_template("cadconsoles.html", conslist=conslist)
