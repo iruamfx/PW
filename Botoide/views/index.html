@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="{{url_for('getsong')}}" class="form-control" method="POST">
+    <label>URL:</label>
+    <input type="text" name="url" class="form-control" required>
+    <input type="submit" value="Cadastrar" class="btn btn-success">
+</form>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Título:</th>
+            <th>Ano:</th>
+            <th>Categoria:</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for song in songs %}
+        <tr>
+            <th><strong>{{song.title}}</strong><br></th>
+            <th><img src="{{song.thumb}}"><br></th>
+            <th>
+                <audio controls>
+                    <source src="C:/Workspace/PW/Botoide/songs/Money Trees.mp3" type="audio/mpeg">
+                </audio>
+            </th>
+            <th>{{song.filepath}}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}
