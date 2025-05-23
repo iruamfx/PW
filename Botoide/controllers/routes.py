@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from api import songs
 
 songlist = []
@@ -20,3 +20,4 @@ def init_app(app):
                 songs.get_song(name=request.form.get("name"))
             else:
                 return 400
+        return redirect(url_for("home"))
