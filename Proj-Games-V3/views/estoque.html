@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1> Controle de Estoque</h1>
+<hr>
+    <details>
+        <summary>
+            [ Cadastrar novo jogo ]
+        </summary>
+        <div class="col-md-4">
+            <form action="{{url_for('estoque')}}" method="post">
+                <input type="text" name="titulo" placeholder="Título do jogo"  class="form-control" required>
+                <input type="number" name="ano" placeholder="Ano do jogo" class="form-control" required>
+                <input type="text" name="categoria" placeholder="Categoria do jogo" class="form-control" required>
+                <input type="text" name="plataforma" placeholder="Plataforma do jogo" class="form-control" required>
+                <input type="number" name="preco" placeholder="Preço do jogo" class="form-control" required>
+                <input type="submit" value="Cadastrar" class="btn btn-success">
+                <input type="reset" value="Limpar" class="btn btn-danger">
+            </form>
+        </div>
+    </details>
+</hr>
+
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Título</th>
+                <th>Ano</th>
+                <th>Categoria</th>
+                <th>Plataforma</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+                <th colspan="2" style="text-align: center;">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for g in gamesestoque.items %}
+                <tr>
+                    <td>{{ g.titulo }}</td>
+                    <td>{{ g.ano}}</td>
+                    <td>{{ g.categoria }}</td>
+                    <td>{{ g.plataforma }}</td>
+                    <td>{{ g.preco }}</td>
+                    <td>{{ g.quantidade }}</td>
+                    <td><a style="text-decoration: none; color: white;" class="btn btn-warning" href="{{url_for('edit',id=g.id)}}">Editar</a></td>
+                    <td> <a href="{{url_for('estoque', id=g.id)}}"><button class="btn btn-danger" onclick="return confirm('Deseja realmente excluir?')">Excluir</button></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p style="text-align: center;">
+    <!-- Se houver registros anteriores -->
+    {% if gamesestoque.has_prev %}
+    <a href="{{url_for('estoque', page=gamesestoque.prev_num)}}"><< Anterior</a>
+    {% endif %}
+    <!-- Se houver próximos registros -->
+    {% if gamesestoque.has_next %}
+    <a href="{{url_for('estoque', page=gamesestoque.next_num)}}">Próximo >></a>
+    </p>
+    {% endif %}
+{% endblock content %}

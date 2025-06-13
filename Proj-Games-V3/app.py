@@ -19,14 +19,14 @@ DB_NAME = 'games'
 app.config['DATABASE_NAME'] = DB_NAME
 
 # Passando o endereço do banco ao Flask
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://root:admin@localhost/{DB_NAME}'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql://root@localhost/{DB_NAME}'
 
 # Iniciando o servidor no localhost, porta 5000, modo de depuração ativado
 if __name__ == '__main__':
     # Criando os dados de conexão:
     connection = pymysql.connect(host='localhost',
                                  user='root',
-                                 password='admin',
+                                 password='',
                                  charset='utf8mb4',    
                                  cursorclass=pymysql.cursors.DictCursor)
     # Tentando criar o banco
