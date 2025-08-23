@@ -5,72 +5,67 @@ import random
 
 def init_app(app):
     rovers = ["Curiosity", "Opportunity", "Spirit"]
-    #cameras_general = ["FHAZ", "MAST", "MARDI", "NAVCAM"]
-    #cameras_special = ["PANCAM", "MINITES"]  # somente para Opp & Spirit
+    cameras_general = ["FHAZ", "MAST", "MARDI", "NAVCAM"]
+    cameras_special = ["PANCAM", "MINITES"]  # somente para Opp & Spirit
+
 
     @app.route('/')
     def home():
         return apirover()
 
-    
+    IMAGES_QNT = 5
+
     @app.route('/apirover', methods=['GET', 'POST'])
-    @app.route('/apirover/<rover>/<int:sol>/<cam>/<int:id>', methods=['GET', 'POST'])
-    def apirover(rover=None, sol=None, cam="MAST", id=None):
-    # --- Case 1: no rover passed (random query, home route) ---
+    @app.route('/apirover/<rover>', methods=['GET', 'POST'])
+    def apirover(rover=None):
+        #rovers = ["Curiosity", "Opportunity", "Spirit"]
+        rovers = ["Curiosity"]
+        cameras = ["FHAZ", "MAST", "MARDI", "NAVCAM"]
+        IMAGES_QNT = 5
+
         if not rover:
-            max_attempts = 5
-            attempts = 0
-            imgList = {"photos": []}
+            rover = random.choice(rovers)
+            print(rover)
 
-            while attempts < max_attempts:
-                attempts += 1
+        imgList = []
 
-                rover = random.choice(rovers)
-                sol = random.randint(900, 1000)
+        attempts = 0
+        while len(imgList) < IMAGES_QNT and attempts < 20:
+            attempts += 1
+            cam = random.choice(cameras)
+            sol = random.randint(900, 1000)
 
-                #if rover in ["Opportunity", "Spirit"]:
-                #    cam = random.choice(cameras_general + cameras_special)
-                #else:
-                #    cam = random.choice(cameras_general)
-
-                print(f"Attempt {attempts}: {rover}, {sol}, {cam}")
-
-                url = f'https://api.nasa.gov/mars-photos/api/v1/rovers/{rover}/photos?api_key=q6QvhlV9uKm1xX22Ek8cJ0kE4JAXyaHkj33wdT7F&sol={sol}&camera={cam}'
-                response = urllib.request.urlopen(url)
-                apiData = response.read()
-                imgList = json.loads(apiData)
-
-                # Check only if it's random
-                if "photos" in imgList and len(imgList["photos"]) >= 10:
-                    break
-                else:
-                    rover = None  # reset so next loop generates new params
-
-            # If after max attempts still not enough images, return "no results"
-            if len(imgList.get("photos", [])) < 10:
-                return "Não foi possível encontrar imagens suficientes após várias tentativas."
-
-        # --- Case 2: rover passed manually in URL ---
-        else:
             url = f'https://api.nasa.gov/mars-photos/api/v1/rovers/{rover}/photos?api_key=q6QvhlV9uKm1xX22Ek8cJ0kE4JAXyaHkj33wdT7F&sol={sol}&camera={cam}'
             response = urllib.request.urlopen(url)
             apiData = response.read()
-            imgList = json.loads(apiData)
+            data = json.loads(apiData)
 
-        # --- Handle optional image ID ---
-        if id:
-            imgInfo = []
-            for img in imgList.get("photos", []):
-                if img['id'] == id:
-                    imgInfo = img
-                    break
+            photos = data.get("photos", [])
+            if photos:
+                # pick one random photo from this sol/camera
+                img = random.choice(photos)
+                # avoid duplicates
+                if img['id'] not in [i['id'] for i in imgList]:
+                    imgList.append(img)
 
-            if imgInfo:
-                return render_template('imageinfo.html', imgInfo=imgInfo)
-            else:
-                return f'Imagem com a ID {id} não foi encontrada.'
+        if len(imgList) < IMAGES_QNT:
+            return f"Não foi possível encontrar {IMAGES_QNT} imagens únicas de diferentes câmeras/sols."
 
-        return render_template('apirover.html', imgList=imgList.get("photos", []))
+        return render_template('apirover.html', imgList=imgList, rover=rover)
+    
+    @app.route('/fullimg', methods=['GET'])
+    def fullimg():
+        img_src = request.args.get('img_src')
+        sol = request.args.get('sol')
+        earth_date = request.args.get('earth_date')
+        camera_name = request.args.get('camera_name')
+        rover_name = request.args.get('rover_name')
+        img_id = request.args.get('img_id')
 
-
-
+        return render_template('fullimg.html', 
+                            img_src=img_src, 
+                            sol=sol, 
+                            earth_date=earth_date, 
+                            camera_name=camera_name, 
+                            rover_name=rover_name,
+                            img_id=img_id)

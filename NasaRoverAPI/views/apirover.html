@@ -1,18 +1,34 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container" style="background-color: #f0f0f0; border-radius: 8px;">
-    <div class="row">
-        {% for img in imgList %}
-        <div class="col-md-3 m-auto">
-            <div class="card" style="width: 16rem;">
-                <img src="{{img.img_src}}">
-                <div class="card-body">
-                    
-                   
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+ <header>
+        <h1 style="text-align: center;">Você está vendo pelos olhos do <span class="rainbow">{{rover}}</span></h1>
+
+        <hr>
+</header>
+
+<div class="container container-md" style="background-color: #1d1d1d; border-radius: 8px;">
+    <div class="carousel" mask>
+	{% for img in imgList %}
+	<article>
+		<img src="{{img.img_src}}" alt="">
+		<h2 style="font-family: 'Exo 2'; font-weight: 800;">Foto n° {{img.id}}</h2>
+		<div>
+			<ul>
+				<li class="li-data">Tirada no Sol n° {{img.sol}}</li>
+				<li class="li-data">Equivalente ao dia {{img.earth_date}}</li>
+				<li class="li-data">pela camera {{img.camera.name}}</li>
+				<li class="li-data">Pelo rover {{img.rover.name}}</li>
+			</ul>
+			<a href="{{ url_for('fullimg', 
+                                     img_src=img.img_src, 
+                                     sol=img.sol, 
+                                     earth_date=img.earth_date, 
+                                     camera_name=img.camera.name, 
+                                     rover_name=img.rover.name,
+                                     img_id=img.id) }}">Veja em HD</a>
+		</div>
+	</article>
+	{% endfor %}
+	</div>
 </div>
 {% endblock content %}
